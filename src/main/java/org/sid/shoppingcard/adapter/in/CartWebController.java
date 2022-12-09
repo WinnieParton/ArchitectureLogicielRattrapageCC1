@@ -1,10 +1,7 @@
 package org.sid.shoppingcard.adapter.in;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.tomcat.util.json.JSONParser;
 import org.sid.kernel.CommandBus;
 import org.sid.kernel.QueryBus;
 import org.sid.shoppingcard.application.port.in.CancelCartCommand;
@@ -37,7 +34,7 @@ public class CartWebController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ValidationCartResponse create(@RequestBody @Valid ValidationCartRequest createCartRequest) {
-        var cartId = (String) commandBus.post(new ValidationCartCommand(createCartRequest.amount));
+        var cartId = (String) commandBus.post(new ValidationCartCommand(createCartRequest.amount, createCartRequest.clientId));
         return new ValidationCartResponse(cartId);
     }
 

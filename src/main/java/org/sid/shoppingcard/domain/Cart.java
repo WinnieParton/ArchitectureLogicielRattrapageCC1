@@ -9,12 +9,22 @@ public final class Cart {
     private Amount amount;
     private Statut statut;
     private Date date;
+    private Client client;
 
-    public Cart(CartId cartId, Amount amount, Date date, Statut statut) {
+    public Cart(CartId cartId, Amount amount, Date date, Statut statut, Client client2) {
+        this.client = client2;
         this.cartId = cartId;
         this.amount = amount;
         this.statut = statut;
         this.date = date;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Amount amount() {
@@ -41,6 +51,18 @@ public final class Cart {
         this.statut = statut;
     }
 
+    public void setAmount(Amount amount) {
+        this.amount = amount;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public boolean isActif() {
+        return statut == Statut.Valider;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(cartId);
@@ -59,8 +81,8 @@ public final class Cart {
 
     @Override
     public String toString() {
-        return "{cartId: " + cartId.value() + ", amount: " + amount.value()
-                + ", statut: " + statut + ", date: " + date + "}";
+        return "{client: " + client + ", cartId: " + cartId.value() + ", amount: " + amount.value()
+                + ", statut: " + statut + ", etat: " + isActif() + ", date: " + date + "}";
     }
 
 }

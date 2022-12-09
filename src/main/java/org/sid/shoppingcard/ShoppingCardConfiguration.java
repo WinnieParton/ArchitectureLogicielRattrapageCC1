@@ -5,7 +5,9 @@ import org.sid.kernel.CommandBus;
 import org.sid.kernel.QueryBus;
 import org.sid.shoppingcard.adapter.out.CartPersistenceAdapter;
 import org.sid.shoppingcard.application.services.CancelCartService;
+import org.sid.shoppingcard.application.services.CreateClientService;
 import org.sid.shoppingcard.application.services.GetAllCartService;
+import org.sid.shoppingcard.application.services.GetAllClientService;
 import org.sid.shoppingcard.application.services.ValidationCartService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,5 +44,15 @@ public class ShoppingCardConfiguration {
     @Bean
     public GetAllCartService allCartService() {
         return new GetAllCartService(persistenceAdapter());
+    }
+
+    @Bean
+    public CreateClientService createClientService() {
+        return new CreateClientService(persistenceAdapter());
+    }
+
+    @Bean
+    public GetAllClientService allClientService() {
+        return new GetAllClientService(persistenceAdapter());
     }
 }

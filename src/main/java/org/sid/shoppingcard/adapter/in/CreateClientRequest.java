@@ -2,10 +2,10 @@ package org.sid.shoppingcard.adapter.in;
 
 import jakarta.validation.constraints.NotNull;
 
-public class ValidationCartRequest {
+public class CreateClientRequest {
     @NotNull
-    public long amount;
+    public String firstName;
 
     @NotNull
-    public String clientId;
+    public String lastName;
 }

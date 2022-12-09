@@ -19,8 +19,8 @@ public final class CartController {
         this.queryBus = queryBus;
     }
 
-    public String validation(double initialAmount) {
-        return (String) commandBus.post(new ValidationCartCommand(initialAmount));
+    public String validation(double initialAmount, String clientId) {
+        return (String) commandBus.post(new ValidationCartCommand(initialAmount, clientId));
     }
 
     public String cancel(String cardId) {
