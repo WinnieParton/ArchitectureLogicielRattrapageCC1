@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "2bc0c568-4d68-4c93-8d80-f1217604e51c",
+		"name": "CC1 AL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Annuler un panier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cartId\":\"36f83657-0ca9-46f4-a887-6b046a5e67b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/carts/cancel"
+			},
+			"response": []
+		},
+		{
+			"name": "Valider un panier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\":100,\r\n    \"clientId\": \"8d16fc67-597b-487e-985f-1af08d4b4bad\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/carts"
+			},
+			"response": []
+		},
+		{
+			"name": "Voir la liste de tous les paniers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/carts"
+			},
+			"response": []
+		},
+		{
+			"name": "Creer un client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"koum wo\",\r\n    \"lastName\": \"winnie\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/clients"
+			},
+			"response": []
+		},
+		{
+			"name": "Voir la liste de clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/clients"
+			},
+			"response": []
+		}
+	]
+}
